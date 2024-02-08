@@ -63,7 +63,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem 'byebug'
+  gem 'byebug', '11.1.3'
+  gem 'faker', '3.2.3'
 end
 
 group :test do

@@ -9,6 +9,7 @@ class HomeController < ApplicationController
     response = Iterable::Event.create_event(current_user.id, event.name, event.id)
 
     if response['success'] && event.notify?
+      # TODO: sent to background job async in case of high volume.
       options = {
         user_id: current_user.id,
         recipient_email: current_user.email,

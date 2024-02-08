@@ -1,9 +1,8 @@
-<h1>Home</h1>
+<h2>Home</h2>
+<hr>
 
 <p><%= @response %></p>
 
 <% Events.all.each do |event_id, event| %>
-  <p>
-    <%= button_to "Create #{event.name}", create_event_path(event_id), :method => :post, :title => "Create #{event.name}" %>
-  </p>
+  <%= button_to "Create #{event.name}", create_event_path(event_id), :method => :post, :title => "Create #{event.name}" %>
 <% end %>

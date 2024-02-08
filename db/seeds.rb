@@ -8,3 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+['user1@example.com', 'user2@example.com', 'user3@example.com'].each do |email|
+  User.create!(name: Faker::Name.name, email: email, password: '123456')
+end

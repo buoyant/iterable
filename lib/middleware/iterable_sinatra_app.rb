@@ -3,33 +3,9 @@ require 'json'
 
 class IterableSinatraApp < Sinatra::Base
   
-  # Mock data for users
-  users = [
-    { userId: 1, email: 'user1@example.com', name: 'User 1' },
-    { userId: 2, email: 'user2@example.com', name: 'User 2' }
-  ]
-
   # default route
   get '/' do
-    "Hello I'm up!"
-  end
-
-  # users
-
-  get '/users/:user_id' do |user_id|
-    content_type :json
-    user = users.find { |user| user[:id] == user_id.to_i }
-    if user
-      user.to_json
-    else
-      status 404
-      { error: 'User not found' }.to_json
-    end
-  end
-
-  get '/users' do
-    content_type :json
-    users.to_json
+    "Hey I'm up!"
   end
 
   # events
@@ -40,7 +16,7 @@ class IterableSinatraApp < Sinatra::Base
     content_type :json
     request_body = JSON.parse(request.body.read)
 
-    user_id     = request_body['userId'] # send from controller
+    user_id     = request_body['userId']
     event_name  = request_body['eventName'] # send from controller
     event_id    = request_body['eventId'] # send from controller
     data_fields = request_body['dataFields'] # optional

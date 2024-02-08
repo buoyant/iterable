@@ -7,26 +7,32 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+      <nav>
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'Events', events_path %>
+        <%= link_to 'Emails', emails_path %>
+      </nav>
+    </header>
 
-    <ul style="list-style-type: none;">
-      <li style="float: left; text-align: center; padding: 16px;"><%= link_to 'Home', root_path %></li>
-      <li style="float: left; text-align: center; padding: 16px;"><%= link_to 'Events', events_path %></li>
-      <li style="float: left; text-align: center; padding: 16px;"><%= link_to 'Emails', emails_path %></li>
-    </ul>
+    <main>
+      <div>
+        <% if current_user %>
+          <span style="float: left">Hello <%= link_to current_user.name, 'users/edit' %></span>
+          <%= button_to '<i class="gg-log-off"></i>'.html_safe, destroy_user_session_path, :method => :delete, :title => "Logout #{current_user.name}", :style => 'float: right' %>
+        <% end %>
+      </div>
 
-    <p align="right">
-      <% if current_user %>
-        Hello <%= link_to current_user.name, 'users/edit' %>
-        <%= button_to 'logout', destroy_user_session_path, :method => :delete, :title => "Logout #{current_user.name}", :style => 'float: right' %>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
       <% end %>
-    </p>
 
-    <%= yield %>
+      <%= yield %>
+    </main>
   </body>
 </html>
