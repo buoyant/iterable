@@ -11,7 +11,7 @@ class IterableSinatraApp < Sinatra::Base
 
   # default route
   get '/' do
-    'Hello from Iterable Sinatra!'
+    "Hello I'm up!"
   end
 
   # users
@@ -79,20 +79,16 @@ class IterableSinatraApp < Sinatra::Base
     campaign_id = request_body['campaignId']
     recipient_email = request_body['recipientEmail']
     user_id = request_body['recipientUserId']
-    data_fields = request_body['dataFields']
-    subject = request_body['subject']
+    data_fields = request_body['dataFields'] # optional
     body = {
       "campaignId": campaign_id,
       "dataFields": data_fields,
     }
 
-    user = users.find { |user| user[:id] == user_id.to_i }
-
-    if user && recipient_email
+    if campaign_id && recipient_email
       sent_email = {
         userId: user_id,
         emailAddress: recipient_email,
-        subject: subject,
         body: body,
         timestamp: Time.now.to_i
       }
@@ -105,7 +101,7 @@ class IterableSinatraApp < Sinatra::Base
     end
   end
 
-  get '/sentEmails' do
+  get '/emails' do
     content_type :json
     sent_emails.to_json
   end

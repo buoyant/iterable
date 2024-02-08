@@ -1,0 +1,19 @@
+<h2>Emails</h2>
+<table>
+  <thead>
+    <th>userId</th>
+    <th>emailAddress</th>
+    <th>Content</th>
+    <th>Sent At</th>
+  </thead>
+  <tbody>
+    <% @emails.each do |email| %>
+      <tr>
+        <td><%= email['userId'] %></td>
+        <td><%= email['emailAddress'] %></td>
+        <td><%= email['body'] %></td>
+        <td><%= Time.at(email['timestamp']) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

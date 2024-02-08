@@ -13,6 +13,13 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <ul style="list-style-type: none;">
+      <li style="float: left; text-align: center; padding: 16px;"><%= link_to 'Home', root_path %></li>
+      <li style="float: left; text-align: center; padding: 16px;"><%= link_to 'Events', events_path %></li>
+      <li style="float: left; text-align: center; padding: 16px;"><%= link_to 'Emails', emails_path %></li>
+    </ul>
+
     <p align="right">
       <% if current_user %>
         Hello <%= link_to current_user.name, 'users/edit' %>

@@ -4,5 +4,8 @@ class Event
   attribute :id,          :string
   attribute :name,        :string
   attribute :description, :string
+  attribute :notify,      :boolean, default: false
+
+  alias :notify? :notify
 end
 

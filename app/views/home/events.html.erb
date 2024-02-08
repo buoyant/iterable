@@ -1,0 +1,21 @@
+<h2>Events</h2>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>User Id</th>
+    <th>Campaign Id</th>
+    <th>Created At</th>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event['eventId'] %></td>
+        <td><%= event['eventName'] %></td>
+        <td><%= event['userId'] %></td>
+        <td><%= event['campaignId'] %></td>
+        <td><%= Time.at(event['createdAt']) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
