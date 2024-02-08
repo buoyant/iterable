@@ -1,0 +1,1 @@
+Dir["#{Rails.root}/lib/middleware/*.rb"].each { |file| require file }

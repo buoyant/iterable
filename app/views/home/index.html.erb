@@ -1,0 +1,11 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<p><%= @response %></p>
+
+
+<% Events.all.each do |event_id, event| %>
+  <p>
+    <%= button_to "Create #{event.name}", create_event_path(event_id), :method => :post, :title => "Create #{event.name}" %>
+  </p>
+<% end %>

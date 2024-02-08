@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <p align="right">
+      <% if current_user %>
+        Hello <%= link_to current_user.name, 'users/edit' %>
+        <%= button_to 'logout', destroy_user_session_path, :method => :delete, :title => "Logout #{current_user.name}", :style => 'float: right' %>
+      <% end %>
+    </p>
+
+    <%= yield %>
+  </body>
+</html>
