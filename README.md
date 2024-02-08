@@ -80,3 +80,7 @@ when Button 1 is clicked the `create_event` action is triggered as per url which
 Iterable module create_event method calls the mock api for creating event.
 
 create event takes event id as param. event object which has notify attribute as true will initiate the email notification Iterable mock API using Iterable module.
+
+#### 8. Flow Diagram
+
+I have added a small pictographic flow diagram with filename uml.png.
