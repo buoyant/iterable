@@ -1,7 +1,9 @@
 #-- encoding: UTF-8
+# This class is used for collection of events as these are limited in this scenario.
 class Events
   @events = {}
 
+  # returns events with id as key and object as value.
   def self.all
     @events
   end
@@ -10,6 +12,7 @@ class Events
     @events[event.id] = event
   end
 
+  # get a particular event by event id.
   def self.get(event_id)
     @events[event_id]
   end

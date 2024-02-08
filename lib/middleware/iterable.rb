@@ -1,3 +1,7 @@
+# This is Iterable module which is called from controllers or any other areas of app.
+# Event and Email and split into seperate classes (loosely coupled).
+# The methods here call the mock api urls and collect and return responses.
+
 module Iterable
   BASE_URI = 'http://localhost:3000/api'
   class Event

@@ -12,13 +12,15 @@ class IterableSinatraApp < Sinatra::Base
 
   events = []
 
+  # mock api for creating event
+
   post '/events/track' do
     content_type :json
     request_body = JSON.parse(request.body.read)
 
     user_id     = request_body['userId']
-    event_name  = request_body['eventName'] # send from controller
-    event_id    = request_body['eventId'] # send from controller
+    event_name  = request_body['eventName']
+    event_id    = request_body['eventId']
     data_fields = request_body['dataFields'] # optional
     campaign_id = request_body['campaignId'] # optional
 
@@ -41,12 +43,18 @@ class IterableSinatraApp < Sinatra::Base
     end
   end
 
+  # listing mock events
+
   get '/events' do
     content_type :json
     events.to_json
   end
 
+  # emails
+
   sent_emails = []
+
+  # mock api for email notification
 
   post '/email/target' do
     content_type :json
@@ -76,6 +84,8 @@ class IterableSinatraApp < Sinatra::Base
       { error: 'Invalid request parameters' }.to_json
     end
   end
+
+  # listing mock emails which were sent.
 
   get '/emails' do
     content_type :json
