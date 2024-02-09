@@ -81,6 +81,10 @@ Iterable module create_event method calls the mock api for creating event.
 
 create event takes event id as param. event object which has notify attribute as true will initiate the email notification Iterable mock API using Iterable module.
 
+Data (events, emails sent) does not persist in mock api after restarting the app.
+
 #### 8. Flow Diagram
 
-I have added a small pictographic flow diagram with filename uml.png.
+I have added a small flow diagram.
+
+![Flow Diagram](uml.png)

@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ .empty-space {
+  padding: 2.4875rem;
+  margin: 2rem 0;
+ }
+
  .gg-log-off {
   box-sizing: border-box;
   position: relative;
