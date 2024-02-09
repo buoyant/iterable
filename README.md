@@ -2,7 +2,7 @@
 
 The setups steps expect following tools installed on the system.
 
-- Github
+- Git
 - Ruby [3.0.6]
 - Rails [7.1.1]
 
@@ -87,4 +87,4 @@ Data (events, emails sent) does not persist in mock api after restarting the app
 
 I have added a small flow diagram.
 
-![Flow Diagram](uml.png)
+![Flow Diagram](./public/uml.png)
